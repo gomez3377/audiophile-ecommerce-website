@@ -1,0 +1,58 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope' , sans-serif;
+}
+
+
+$orange: #d87d4a;
+$light-orange: #fbaf85;
+$black: #101010;
+$light-gray: #f1f1f1;
+$near-white: #fafafa;
+
+
+h1{
+    font-size: 56px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 58px;
+}
+
+h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 44px;
+}
+h3 {
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1.15px;
+    line-height: 36px;
+}
+h4 {
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 38px;
+}
+h5 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    line-height: 33px;
+}
+h6 {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    line-height: 24px;
+}
+
+p{
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+}
