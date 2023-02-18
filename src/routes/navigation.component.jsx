@@ -1,5 +1,6 @@
 import  {ReactComponent as CartIcon} from '../assets/shared/desktop/icon-cart.svg'
 import { Outlet } from 'react-router-dom'
+import Footer from '../components/footer/footer.component'
 
 const Navigation = () => {
   return (
@@ -15,6 +16,7 @@ const Navigation = () => {
       <CartIcon/>
       </div>
       <Outlet/>
+      <Footer/>
     </>
   )
 }
