@@ -1,12 +1,16 @@
 import  {ReactComponent as CartIcon} from '../assets/shared/desktop/icon-cart.svg'
+import  {ReactComponent as Logo} from '../assets/shared/desktop/logo.svg'
 import { Outlet } from 'react-router-dom'
 import Footer from '../components/footer/footer.component'
+import CompanyMission from '../components/company-mission/company-mission.component'
 
-const Navigation = () => {
+
+const Navigation = ({}) => {
+  
   return (
     <>
     <div className='navigation'>
-        <img src="" alt="logo" />
+       <Logo />
         <ul>
           <li>Home</li>
           <li>Headphones</li>
@@ -16,6 +20,8 @@ const Navigation = () => {
       <CartIcon/>
       </div>
       <Outlet/>
+     
+      <CompanyMission/>
       <Footer/>
     </>
   )

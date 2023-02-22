@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../button/button.component";
 
 const Hero = () => {
   return (
@@ -9,7 +10,7 @@ const Hero = () => {
         Experience natural, lifelike audio and exceptional build quality made
         for the pasionate music enthusiast
       </p>
-      <button>See Product</button>
+      <Button>See Product</Button>
     </div>
   );
 };

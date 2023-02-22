@@ -1,12 +1,13 @@
 import {ReactComponent as FacebookIcon} from '../../assets/shared/desktop/icon-facebook.svg'
 import {ReactComponent as InstagramIcon} from '../../assets/shared/desktop/icon-instagram.svg'
 import {ReactComponent as TwitterIcon} from '../../assets/shared/desktop/icon-twitter.svg'
+import {ReactComponent as Logo} from '../../assets/shared/desktop/logo.svg'
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-nav">
-        <img src="" alt="logo" />
+        <Logo/>
         <ul>
           <li>Home</li>
           <li>Headphones</li>
