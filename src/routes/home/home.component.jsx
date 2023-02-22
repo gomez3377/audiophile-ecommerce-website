@@ -1,6 +1,6 @@
 
-import Hero from "../components/hero/hero.component"
-import CategoryNav from '../components/category-nav/category-nav.component'
+import Hero from "../../components/hero/hero.component"
+import CategoryNav from '../../components/category-nav/category-nav.component'
 
 
 

@@ -5,12 +5,15 @@
     font-family: 'Manrope' , sans-serif;
 }
 
+:root{
+    --orange: #d87d4a;
+    --light-orange: #fbaf85;
+    --near-black: #101010;
+    --light-gray: #f1f1f1;
+    --near-white: #fafafa;
 
-$orange: #d87d4a;
-$light-orange: #fbaf85;
-$black: #101010;
-$light-gray: #f1f1f1;
-$near-white: #fafafa;
+}
+
 
 
 h1{
@@ -51,8 +54,33 @@ h6 {
     line-height: 24px;
 }
 
+.overline{
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 19px;
+    letter-spacing: 10px;
+    color:var(--orange)
+}
+
+.subtitle{
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 25px;
+    color:var(--orange)
+}
+
 p{
     font-weight: 500;
     font-size: 15px;
     line-height: 25px;
+}
+
+li{
+    list-style: none;
+}
+
+navigation{
+    display: flex;
+    justify-content: space-between;
+
 }

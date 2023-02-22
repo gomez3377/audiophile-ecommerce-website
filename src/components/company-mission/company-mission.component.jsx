@@ -1,10 +1,11 @@
-import React from "react";
+import {bestGearImg} from '../../assets/shared/desktop/images'
+import { CompanyMissionContainer, CompanyMissionInfo } from './company-mission.styles';
 
 
 const CompanyMission = () => {
   return (
-    <div className="about-us-container">
-      <div className="company-mission-container">
+    <CompanyMissionContainer>
+      <CompanyMissionInfo>
         <h2>Bringing you the best audio gear</h2>
         <p>
           Located at the heart of New York City, Audiophile is the premier store
@@ -14,9 +15,9 @@ const CompanyMission = () => {
           store to meet some of the fantastic people who make Audiophile the
           best place to buy your portable audio equipment.
         </p>
-      </div>
-    <div className="company-image"></div>
-    </div>
+      </CompanyMissionInfo>
+    <img src={bestGearImg} alt="best-gear-img" />
+    </CompanyMissionContainer>
   );
 };
 

@@ -1,25 +1,14 @@
 import { createContext } from "react";
 
-const createCategories = () => {
-  const categoryArray = [];
-
-  PRODUCT_DATA.forEach((product) => {
-    categoryArray.push({
-      name: product.category,
-      categoryImg: product.categoryImage,
-    });
-
-    const filteredArrayt
-
-
-  });
-
-  return categoryArray;
-};
 
 import PRODUCT_DATA from "../data.json";
 
-console.log(PRODUCT_DATA);
+
+const createCategories = () => {
+  const categoryArray = [...new Map(PRODUCT_DATA.map((product) => [product.category, product])).values()];
+
+  return categoryArray;
+};
 
 export const ProductContext = createContext({
   categories: [],
