@@ -3,6 +3,20 @@ import { createContext } from "react";
 
 import PRODUCT_DATA from "../data.json";
 
+const getfilteredProducts = (categoryName) => {
+  const filteredArray = []
+  PRODUCT_DATA.forEach(a => {
+    if(a.category === categoryName)
+    {
+      filteredArray.push(a)
+    }
+  })
+
+
+
+  return filteredArray
+}
+
 
 const createCategories = () => {
   const categoryArray = [...new Map(PRODUCT_DATA.map((product) => [product.category, product])).values()];
@@ -12,15 +26,20 @@ const createCategories = () => {
 
 export const ProductContext = createContext({
   categories: [],
+  getfilteredProducts: () => {}
 });
 
 export const ProductProvider = ({ children }) => {
   const categories = createCategories();
-  console.log(categories);
+  
 
+  
   const value = {
     categories,
+    getfilteredProducts,
+
   };
+
 
   return (
     <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
