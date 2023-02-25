@@ -12,11 +12,14 @@ const getfilteredProducts = (categoryName) => {
     }
   })
 
-
-
+  
   return filteredArray
 }
 
+const getProductDetails = (productName) => {
+ return PRODUCT_DATA.find(product => product.slug === productName)
+  
+}
 
 const createCategories = () => {
   const categoryArray = [...new Map(PRODUCT_DATA.map((product) => [product.category, product])).values()];
@@ -26,7 +29,8 @@ const createCategories = () => {
 
 export const ProductContext = createContext({
   categories: [],
-  getfilteredProducts: () => {}
+  getfilteredProducts: () => {},
+  getProductDetails: () => {}
 });
 
 export const ProductProvider = ({ children }) => {
@@ -37,6 +41,7 @@ export const ProductProvider = ({ children }) => {
   const value = {
     categories,
     getfilteredProducts,
+    getProductDetails
 
   };
 

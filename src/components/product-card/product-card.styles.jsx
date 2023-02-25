@@ -14,8 +14,19 @@ export const ProductCardContainer = styled.div`
 `
 export const ProductImageContainer = styled.div`
     background-color: var(--light-gray);
+    max-width:540px;
 `
 
 export const ProductInfo = styled.div`
-
+    max-width:445px;
+    .overline{
+        margin-bottom:16px;
+    }
+    h2{
+        margin-bottom:32px;
+    }
+    p{
+        margin-bottom:40px
+    }
+    
 `

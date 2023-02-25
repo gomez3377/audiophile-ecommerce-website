@@ -15,7 +15,8 @@ const rearrangeArray = (array) => {
 
 const Category = () => {
   const { category } = useParams();
-  const { categories, getfilteredProducts } = useContext(ProductContext);
+  
+  const { getfilteredProducts } = useContext(ProductContext);
   const productArray = rearrangeArray(getfilteredProducts(category));
 
   return (
@@ -25,7 +26,7 @@ const Category = () => {
         </CategoryHeader>
       <CategoryContent>
         {productArray.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} route={category} />
         ))}
         <CategoryNav />
       </CategoryContent>

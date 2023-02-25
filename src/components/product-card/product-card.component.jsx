@@ -1,10 +1,16 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Button from "../button/button.component";
 import ProductCardDesktopImage from "../product-card-desktop-image/product-card-desktop-image.component";
 import { ProductCardContainer, ProductInfo, ProductImageContainer } from "./product-card.styles";
 
-const ProductCard = ({ product }) => {
-  const { name, description, new: newProduct, image } = product;
+const ProductCard = ({ product, route }) => {
+  const { name, description, new: newProduct, image, slug } = product;
+  const navigate = useNavigate()
+  
+  
+  const navigationHandler = () =>  navigate(slug)
+  
 
   return (
     <ProductCardContainer>
@@ -13,10 +19,12 @@ const ProductCard = ({ product }) => {
 
         </ProductImageContainer>
       <ProductInfo>
-        {newProduct && <div>New Product</div>}
+        {newProduct && <div className="overline">New Product</div>}
         <h2>{name}</h2>
         <p>{description}</p>
-        <Button>See Product</Button>
+        
+        <Button onClick={navigationHandler}>See Product</Button>
+        
       </ProductInfo>
     </ProductCardContainer>
   );
