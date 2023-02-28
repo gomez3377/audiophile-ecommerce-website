@@ -26,6 +26,7 @@ case './assets/product-zx9-speaker/desktop/image-gallery-3.jpg':
     productImage = zx9SpeakerDesktop.DesktopGallery3;
     break;
 case './assets/product-zx9-speaker/desktop/image-product.jpg':
+case './assets/shared/desktop/image-zx9-speaker.jpg':
     productImage = zx9SpeakerDesktop.DesktopProductImage;
     break;
 
@@ -42,6 +43,7 @@ case './assets/product-zx7-speaker/desktop/image-gallery-3.jpg':
     productImage = zx7SpeakerDesktop.DesktopGallery3;
     break;
 case './assets/product-zx7-speaker/desktop/image-product.jpg':
+  case './assets/shared/desktop/image-zx7-speaker.jpg':
     productImage = zx7SpeakerDesktop.DesktopProductImage;
     break;
 
@@ -59,6 +61,7 @@ case './assets/product-zx7-speaker/desktop/image-product.jpg':
             productImage = xx99MarkOneHeadphoneDesktop.DesktopGallery3;
             break;
         case './assets/product-xx99-mark-one-headphones/desktop/image-product.jpg':
+        case './assets/shared/desktop/image-xx99-mark-one-headphones.jpg':
             productImage = xx99MarkOneHeadphoneDesktop.DesktopProductImage;
             break;
         
@@ -73,6 +76,7 @@ case './assets/product-zx7-speaker/desktop/image-product.jpg':
             productImage = xx99MarkTwoHeadphoneDesktop.DesktopGallery3;
             break;
         case './assets/product-xx99-mark-two-headphones/desktop/image-product.jpg':
+          case './assets/shared/desktop/image-xx99-mark-two-headphones.jpg':
             productImage = xx99MarkTwoHeadphoneDesktop.DesktopProductImage;
             break;
 
@@ -92,7 +96,8 @@ case './assets/product-zx7-speaker/desktop/image-product.jpg':
       case "./assets/product-xx59-headphones/desktop/image-gallery-3.jpg":
         productImage = xx59HeadphoneDesktop.DesktopGallery3;
         break;
-      case './assets/product-xx59-headphones/desktop/image-product':
+      case './assets/product-xx59-headphones/desktop/image-product.jpg':
+      case './assets/shared/desktop/image-xx59-headphones.jpg':
         productImage = xx59HeadphoneDesktop.DesktopProductImage;
         break;
         
