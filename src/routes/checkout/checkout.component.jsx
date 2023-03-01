@@ -16,7 +16,7 @@ const defaultFormFields = {
   eMoneyPin: "",
 };
 
-const paymentOptions = ["e-Money", "Cash On Delievery"]
+const paymentOptions = [{label:"e-Money", value:"eMoney"}, {label:"Cash On Delievery", value:"cash"}]
 
 const Checkout = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
@@ -37,6 +37,8 @@ const Checkout = () => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
+
+  
 
   return (
     <>
@@ -130,14 +132,13 @@ const Checkout = () => {
             </fieldset>
             <fieldset>
               <legend className="subtitle">Payment Details</legend>
-              <RadioButtonGroup label="Payment Method" labelList = {paymentOptions} />
-              <fieldset>
-                <legend>Payment Method</legend>
-              <input type="radio" name="" id="" />
-              <label htmlFor="">e-Money</label>
-              <input type="radio" name="" id="" />
-              <label htmlFor="">Cash on Delivery</label>
-              </fieldset>
+              <RadioButtonGroup paymentMethod={paymentMethod} inputOptions={{
+                  name:"paymentMethod",
+                  onChange: onHandleChange,
+                  
+              }} label="Payment Method" labelList = {paymentOptions} />
+             
+          
 
 
               <label htmlFor="">e-Money Number</label>

@@ -1,10 +1,12 @@
 import React from 'react'
 
-const RadioButton = () => {
+const RadioButton = ({label, value, inputOptions, paymentMethod}) => {
+  
+
   return (
     <>
-    <input type="radio" name="" id="" />
-    <label htmlFor=""></label>
+    <input type="radio"  id={value} {...inputOptions} value={value} checked={paymentMethod === value}  />
+    <label htmlFor={label}>{label}</label>
     </>
   )
 }
