@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CartComponent from "../../components/cart/cart.component";
 import FormInput from "../../components/Form-Input/form-input.component";
 import RadioButtonGroup from "../../components/radio-button-group/radio-button-group.component";
+import { ReactComponent as CashOnDeliveryIcon } from "../../assets/checkout/icon-cash-on-delivery.svg";
 
 const defaultFormFields = {
   displayName: "",
@@ -16,11 +17,14 @@ const defaultFormFields = {
   eMoneyPin: "",
 };
 
-const paymentOptions = [{label:"e-Money", value:"eMoney"}, {label:"Cash On Delievery", value:"cash"}]
+const paymentOptions = [
+  { label: "e-Money", value: "eMoney" },
+  { label: "Cash On Delievery", value: "cash" },
+];
 
 const Checkout = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  
+
   const {
     displayName,
     email,
@@ -37,8 +41,6 @@ const Checkout = () => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
-
-  
 
   return (
     <>
@@ -132,19 +134,52 @@ const Checkout = () => {
             </fieldset>
             <fieldset>
               <legend className="subtitle">Payment Details</legend>
-              <RadioButtonGroup paymentMethod={paymentMethod} inputOptions={{
-                  name:"paymentMethod",
+              <RadioButtonGroup
+                paymentMethod={paymentMethod}
+                inputOptions={{
+                  name: "paymentMethod",
                   onChange: onHandleChange,
-                  
-              }} label="Payment Method" labelList = {paymentOptions} />
-             
-          
+                }}
+                label="Payment Method"
+                labelList={paymentOptions}
+              />
 
-
-              <label htmlFor="">e-Money Number</label>
-              <input type="number" name="" id="" />
-              <label htmlFor="">e-Money Pin</label>
-              <input type="number" name="" id="" />
+              {paymentMethod === "cash" ? (
+                <div>
+                  <CashOnDeliveryIcon />
+                  <p>
+                    The 'Cash on Delivery' option enables you to pay in cash
+                    when our delivery courier arrives at your residence. Just
+                    make sure your address is correct so that your order will
+                    not be cancelled.
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <FormInput
+                    label="e-Money Number"
+                    inputOptions={{
+                      name: "eMoneyNumber",
+                      value: eMoneyNumber,
+                      type: "number",
+                      placeholder: "12334567",
+                      required: true,
+                      onChange: onHandleChange,
+                    }}
+                  />
+                  <FormInput
+                    label="e-Money Pin"
+                    inputOptions={{
+                      name: "eMoneyPin",
+                      value: eMoneyPin,
+                      type: "number",
+                      placeholder: "1234",
+                      required: true,
+                      onChange: onHandleChange,
+                    }}
+                  />
+                </div>
+              )}
             </fieldset>
           </div>
           <CartComponent />
