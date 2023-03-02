@@ -28,6 +28,7 @@ const createCategories = () => {
 };
 
 export const ProductContext = createContext({
+  products: [],
   categories: [],
   getfilteredProducts: () => {},
   getProductDetails: () => {}
@@ -35,10 +36,11 @@ export const ProductContext = createContext({
 
 export const ProductProvider = ({ children }) => {
   const categories = createCategories();
-  
+  const products = PRODUCT_DATA
 
   
   const value = {
+    products,
     categories,
     getfilteredProducts,
     getProductDetails

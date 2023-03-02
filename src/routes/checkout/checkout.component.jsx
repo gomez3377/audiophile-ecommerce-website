@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CartComponent from "../../components/cart/cart.component";
+import ChekcoutSummary from "../../components/checkout-summary/checkout-summary.component";
 import FormInput from "../../components/Form-Input/form-input.component";
 import RadioButtonGroup from "../../components/radio-button-group/radio-button-group.component";
 import { ReactComponent as CashOnDeliveryIcon } from "../../assets/checkout/icon-cash-on-delivery.svg";
@@ -182,7 +182,7 @@ const Checkout = () => {
               )}
             </fieldset>
           </div>
-          <CartComponent />
+          <ChekcoutSummary />
         </form>
       </div>
     </>

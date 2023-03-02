@@ -1,14 +1,18 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 
 
-export const ShopContext = createContext(
-
+export const ShopContext = createContext({
+    cartSelected: false,
+    setCartSelected: () => {}
+}
 ) 
 
 
 export const ShopProvider = ({children}) => {
-const value = ""
+
+const [cartSelected, setCartSelected] = useState(false)
+const value = {cartSelected, setCartSelected}
 
     return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>
 }

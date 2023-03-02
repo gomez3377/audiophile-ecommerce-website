@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
-import React from "react";
-import { useContext } from "react";
+
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import Button from "../../components/button/button.component";
 import CategoryNav from "../../components/category-nav/category-nav.component";
@@ -10,13 +10,21 @@ import { ProductContext } from "../../context/product.context";
 
 const ProductPage = ({}) => {
   const { product } = useParams();
+  const [count, setCount] = useState(1)
+
+
+
+
   const { getProductDetails } = useContext(ProductContext);
   const currentProduct = getProductDetails(product);
   const { name, description, price, features, includes, gallery, image, others } =
     currentProduct;
 
-  console.log(currentProduct);
-  console.log(image.desktop);
+ const addItemQuantity = () => setCount(count + 1)
+ const subtractItemQuantity = () => setCount(count > 1 ? count - 1 : count)
+
+ 
+  
 
   return (
     <>
@@ -27,9 +35,9 @@ const ProductPage = ({}) => {
           <p>{description}</p>
           <h6>${price}</h6>
           <div className="count">
-            <div>-</div>
-            <h6>1</h6>
-            <div>+</div>
+            <div onClick={subtractItemQuantity}>-</div>
+            <h6>{count}</h6>
+            <div onClick={addItemQuantity}>+</div>
           </div>
           <Button>Add to Cart</Button>
         </div>

@@ -6,4 +6,4 @@ import cartImageZx7Speaker from './image-zx7-speaker.jpg'
 import cartImageZx9Speaker from './image-zx9-speaker.jpg'
 
 
-export const cartImages = {cartImageXx59Headphones, cartImageXx99MarkOneHeadphones, cartImageXx99MarkTwoHeadphones, cartImageYx1Earphones, cartImageZx7Speaker, cartImageZx9Speaker}
+export {cartImageXx59Headphones, cartImageXx99MarkOneHeadphones, cartImageXx99MarkTwoHeadphones, cartImageYx1Earphones, cartImageZx7Speaker, cartImageZx9Speaker}
