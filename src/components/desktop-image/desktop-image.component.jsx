@@ -4,6 +4,7 @@ import { xx99MarkTwoHeadphoneDesktop } from "../../assets/product-xx99-mark-two-
 import { yx1Desktop } from "../../assets/product-yx1-earphones/product-yx1-earphones.images";
 import { zx7SpeakerDesktop } from "../../assets/product-zx7-speaker/product-zx7-speaker.images";
 import { zx9SpeakerDesktop } from "../../assets/product-zx9-speaker/product-zx9-speaker.images";
+import { DesktopImageContainer } from "./desktop-image.styled";
 
 
 const DesktopImage = ({ name, image }) => {
@@ -122,7 +123,7 @@ case './assets/product-zx7-speaker/desktop/image-product.jpg':
     }
     return productImage;
   };
-  return <img src={productImageHandler(image)} alt={name} />;
+  return <DesktopImageContainer src={productImageHandler(image)} alt={name} />;
 };
 
 export default DesktopImage;

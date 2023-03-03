@@ -7,6 +7,7 @@ import CategoryNav from "../../components/category-nav/category-nav.component";
 import DesktopImage from "../../components/desktop-image/desktop-image.component";
 import OtherProductsNavBar from "../../components/other-products-nav-bar/other-products-nav-bar.components";
 import { ProductContext } from "../../context/product.context";
+import { CountContainer, ImageGalleryContainer, InTheBoxContainer, MoreInfoContainer, ProdcutContainer, ProdcutFeaturesContainer, ProductDetails, ProductGalleryImage, QuantityContainer } from "./product-page.styles";
 
 const ProductPage = ({}) => {
   const { product } = useParams();
@@ -17,7 +18,7 @@ const ProductPage = ({}) => {
 
   const { getProductDetails } = useContext(ProductContext);
   const currentProduct = getProductDetails(product);
-  const { name, description, price, features, includes, gallery, image, others } =
+  const { name, description, price, features, includes, gallery, image, others, new:newProduct } =
     currentProduct;
 
  const addItemQuantity = () => setCount(count + 1)
@@ -28,26 +29,32 @@ const ProductPage = ({}) => {
 
   return (
     <>
-      <div className="product-container">
+    <p>Go Back</p>
+      <ProdcutContainer>
         <DesktopImage image={image.desktop} name={name} />
-        <div className="product-details">
+        <ProductDetails>
+          {newProduct && (<div className="overline">New Product</div>)}
           <h2>{name}</h2>
           <p>{description}</p>
           <h6>${price}</h6>
-          <div className="count">
-            <div onClick={subtractItemQuantity}>-</div>
+
+          <QuantityContainer>
+            <CountContainer>
+
+            <div className="subtitle" onClick={subtractItemQuantity}>-</div>
             <h6>{count}</h6>
-            <div onClick={addItemQuantity}>+</div>
-          </div>
+            <div  className="subtitle"onClick={addItemQuantity}>+</div>
+            </CountContainer>
           <Button>Add to Cart</Button>
-        </div>
-      </div>
-      <div className="more-info">
-        <div className="product-features">
+          </QuantityContainer>
+        </ProductDetails>
+      </ProdcutContainer>
+      <MoreInfoContainer>
+        <ProdcutFeaturesContainer>
           <h3>Features</h3>
           <p>{features}</p>
-        </div>
-        <div className="in-the-box">
+        </ProdcutFeaturesContainer>
+        <InTheBoxContainer>
           <h3>In the Box</h3>
           <ul>
             {includes.map((object) => {
@@ -60,14 +67,14 @@ const ProductPage = ({}) => {
               );
             })}
           </ul>
-        </div>
-      </div>
-      <div className="image-gallery">
+        </InTheBoxContainer>
+      </MoreInfoContainer>
+      <ImageGalleryContainer>
         {Object.entries(gallery).map(([key, val], i) => {
           const { desktop } = val;
-          return <DesktopImage key={i} image={desktop} name={`${key} image`} />;
+          return <ProductGalleryImage key={i} image={desktop} name={`${key} image`} />;
         })}
-      </div>
+      </ImageGalleryContainer>
 
         <h4>You May Also Like</h4>
         <OtherProductsNavBar otherProducts={others} />

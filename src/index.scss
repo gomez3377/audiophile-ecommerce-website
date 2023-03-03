@@ -87,7 +87,10 @@ a{
 navigation{
     display: flex;
     justify-content: space-between;
+   grid-auto-rows: auto;
+&:last-child{
 
+}
 }
 
 
