@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { CartContext } from "../../context/cart.context";
+
 import { ProductContext } from "../../context/product.context";
 import { useNavigate, useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
@@ -22,15 +22,13 @@ const ProductPage = () => {
   const navigateBackHandler = () => navigateBack(-1)
   
   const currentProduct = getProductDetails(product)
-  const [count, setCount] = useState(1)
+
  
   const { name, description, price, features, includes, gallery, image, others, new:newProduct } =
   currentProduct;
   
   
 
-  const addItemQuantity = () => setCount(count + 1)
-  const subtractItemQuantity = () => setCount(count > 1 ? count - 1 : count)
 
   
 

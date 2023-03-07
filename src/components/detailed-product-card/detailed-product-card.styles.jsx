@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import DesktopImage from '../desktop-image/desktop-image.component'
 
 export const DetailedProductCardContainer = styled.div`
     display:flex;
@@ -10,6 +11,8 @@ export const DetailedProductCardContainer = styled.div`
 
 
 `
+
+
 
 export const ProductDetails = styled.div`
     width: 445.5px;
@@ -53,3 +56,9 @@ export const CountContainer = styled.div`
 
     }
 `
+
+export const ProductImage = styled(DesktopImage)`
+    width: 540px;
+    height: 560px;
+`
+
