@@ -2,12 +2,13 @@ import {useContext} from 'react'
 import { CartContext } from '../../context/cart.context'
 import Button from '../button/button.component'
 import CartItem from '../cart-item/cart-item.component'
+import { CheckoutSummaryContainer } from './checkout-summary.styles'
 
 const CheckoutSummary = () => {
     const {cartItems, totalValue} = useContext(CartContext)
 
   return (
-    <div className='cart-container'>
+    <CheckoutSummaryContainer>
         <h6>Summary</h6>
         {cartItems.map(item => <CartItem key={nanoid()} item={item}/>)}
 
@@ -31,7 +32,7 @@ const CheckoutSummary = () => {
             <h6>$2,349</h6>
         </div>
         <Button>Continue & Pay</Button>
-    </div>
+    </CheckoutSummaryContainer>
   )
 }
 

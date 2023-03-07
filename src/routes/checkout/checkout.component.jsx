@@ -4,6 +4,7 @@ import ChekcoutSummary from "../../components/checkout-summary/checkout-summary.
 import FormInput from "../../components/Form-Input/form-input.component";
 import RadioButtonGroup from "../../components/radio-button-group/radio-button-group.component";
 import { ReactComponent as CashOnDeliveryIcon } from "../../assets/checkout/icon-cash-on-delivery.svg";
+import { CheckoutContainer, CheckoutInputContainer, FormContainer, FormSection } from "./checkout.styles";
 
 const defaultFormFields = {
   displayName: "",
@@ -48,13 +49,13 @@ const Checkout = () => {
 
 
   return (
-    <>
+    <CheckoutContainer>
       <p onClick={navigateBackHandler}>Go Back</p>
-      <div className="form-container">
+      <FormContainer action="">
+   
+          <CheckoutInputContainer>
         <h3>Checkout</h3>
-        <form action="">
-          <div className="checkout-input-container">
-            <fieldset>
+            <FormSection>
               <legend className="subtitle">Billing Details</legend>
               <FormInput
                 label="Name"
@@ -89,8 +90,8 @@ const Checkout = () => {
                   onChange: onHandleChange,
                 }}
               />
-            </fieldset>
-            <fieldset>
+            </FormSection>
+            <FormSection>
               <legend className="subtitle">Shipping Info</legend>
               <FormInput
                 label="Address"
@@ -136,8 +137,8 @@ const Checkout = () => {
                   onChange: onHandleChange,
                 }}
               />
-            </fieldset>
-            <fieldset>
+            </FormSection>
+            <FormSection>
               <legend className="subtitle">Payment Details</legend>
               <RadioButtonGroup
                 paymentMethod={paymentMethod}
@@ -185,12 +186,12 @@ const Checkout = () => {
                   />
                 </div>
               )}
-            </fieldset>
-          </div>
+            </FormSection>
+          </CheckoutInputContainer>
           <ChekcoutSummary />
-        </form>
-      </div>
-    </>
+       
+      </FormContainer>
+    </CheckoutContainer>
   );
 };
 
