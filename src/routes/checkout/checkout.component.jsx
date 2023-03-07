@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ChekcoutSummary from "../../components/checkout-summary/checkout-summary.component";
 import FormInput from "../../components/Form-Input/form-input.component";
 import RadioButtonGroup from "../../components/radio-button-group/radio-button-group.component";
@@ -23,8 +24,11 @@ const paymentOptions = [
 ];
 
 const Checkout = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
 
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  
+  const navigateBack = useNavigate()
+  const navigateBackHandler = () => navigateBack(-1)
   const {
     displayName,
     email,
@@ -42,9 +46,10 @@ const Checkout = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+
   return (
     <>
-      <p>Go Back</p>
+      <p onClick={navigateBackHandler}>Go Back</p>
       <div className="form-container">
         <h3>Checkout</h3>
         <form action="">
