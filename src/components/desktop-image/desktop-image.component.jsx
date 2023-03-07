@@ -7,7 +7,7 @@ import { zx9SpeakerDesktop } from "../../assets/product-zx9-speaker/product-zx9-
 import { DesktopImageContainer } from "./desktop-image.styled";
 
 
-const DesktopImage = ({ name, image }) => {
+const DesktopImage = ({className, name, image }) => {
 
   const productImageHandler = (image) => {
     let productImage;
@@ -123,7 +123,7 @@ case './assets/product-zx7-speaker/desktop/image-product.jpg':
     }
     return productImage;
   };
-  return <DesktopImageContainer src={productImageHandler(image)} alt={name} />;
+  return <DesktopImageContainer className={className} src={productImageHandler(image)} alt={name} />;
 };
 
 export default DesktopImage;

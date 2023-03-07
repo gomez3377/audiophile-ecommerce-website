@@ -4,10 +4,9 @@ import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import Button from "../../components/button/button.component";
 import CategoryNav from "../../components/category-nav/category-nav.component";
-import DesktopImage from "../../components/desktop-image/desktop-image.component";
 import OtherProductsNavBar from "../../components/other-products-nav-bar/other-products-nav-bar.components";
 import { ProductContext } from "../../context/product.context";
-import { CountContainer, ImageGalleryContainer, InTheBoxContainer, MoreInfoContainer, ProdcutContainer, ProdcutFeaturesContainer, ProductDetails, ProductGalleryImage, QuantityContainer } from "./product-page.styles";
+import { CountContainer, ImageGalleryContainer, InTheBoxContainer, MoreInfoContainer, ProdcutContainer, ProdcutFeaturesContainer, ProductDetails, ProductGalleryImage, ProductImage, QuantityContainer } from "./product-page.styles";
 
 const ProductPage = ({}) => {
   const { product } = useParams();
@@ -31,7 +30,7 @@ const ProductPage = ({}) => {
     <>
     <p>Go Back</p>
       <ProdcutContainer>
-        <DesktopImage image={image.desktop} name={name} />
+        <ProductImage image={image.desktop} name={name} />
         <ProductDetails>
           {newProduct && (<div className="overline">New Product</div>)}
           <h2>{name}</h2>

@@ -10,8 +10,13 @@ export const ProdcutContainer = styled.div`
     width:1110px;
     justify-content: space-between;
     align-items: center;
+   
 
 
+`
+export const ProductImage = styled(DesktopImage)`
+    width: 540px;
+    height: 560px;
 `
 
 export const ProductDetails = styled.div`
@@ -48,6 +53,7 @@ export const CountContainer = styled.div`
         padding: 15px 21px;
         color:black;
         opacity:0.25;
+        cursor:pointer;
     }
     h6{
         margin:0;
@@ -78,6 +84,7 @@ export const MoreInfoContainer = styled.div`
 
 
     export const InTheBoxContainer = styled.div`
+    width:350px;
     h3{
         margin-bottom: 32px;
     }
@@ -100,14 +107,24 @@ export const MoreInfoContainer = styled.div`
     margin-top: 160px;
     width: 1110px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: auto;
+    grid-auto-columns: 3fr;
+    grid-auto-rows: 2fr;
+    gap: 32px 30px;
    
 
 
 `
 export const ProductGalleryImage = styled(DesktopImage)`
- 
+ width:445px;
+ height:280px;
+
+ &:last-of-type{
+    grid-column: 2/ span 3;
+    grid-row: 1/ span 2;
+    width: 635px;
+    height: 592px;
+    
+ }
 
 `
 
