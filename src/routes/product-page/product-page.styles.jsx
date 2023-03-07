@@ -3,14 +3,13 @@ import DesktopImage from "../../components/desktop-image/desktop-image.component
 
 
 
-export const ProdcutContainer = styled.div`
-    display:flex;
+export const ProductPageContainer = styled.div`
     margin: 0 auto;
     margin-top: 56px;
     width:1110px;
     justify-content: space-between;
     align-items: center;
-   
+
 
 
 `
@@ -53,14 +52,11 @@ export const CountContainer = styled.div`
         padding: 15px 21px;
         color:black;
         opacity:0.25;
-        cursor:pointer;
     }
     h6{
         margin:0;
         padding: 15px 0;
 
-    }
-`
 
 
 export const MoreInfoContainer = styled.div`

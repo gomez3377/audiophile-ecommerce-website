@@ -1,53 +1,50 @@
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/cart.context";
+import { ProductContext } from "../../context/product.context";
+import { useNavigate, useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 
-import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
-import Button from "../../components/button/button.component";
 import CategoryNav from "../../components/category-nav/category-nav.component";
+
 import OtherProductsNavBar from "../../components/other-products-nav-bar/other-products-nav-bar.components";
-import { ProductContext } from "../../context/product.context";
-import { CountContainer, ImageGalleryContainer, InTheBoxContainer, MoreInfoContainer, ProdcutContainer, ProdcutFeaturesContainer, ProductDetails, ProductGalleryImage, ProductImage, QuantityContainer } from "./product-page.styles";
 
-const ProductPage = ({}) => {
+
+import { ImageGalleryContainer, InTheBoxContainer, MoreInfoContainer,  ProdcutFeaturesContainer,  ProductGalleryImage, ProductPageContainer,  } from "./product-page.styles";
+
+import DetailedProductCard from "../../components/detailed-product-card/detailed-product-card.component";
+
+const ProductPage = () => {
   const { product } = useParams();
-  const [count, setCount] = useState(1)
-
-
-
-
   const { getProductDetails } = useContext(ProductContext);
-  const currentProduct = getProductDetails(product);
-  const { name, description, price, features, includes, gallery, image, others, new:newProduct } =
-    currentProduct;
 
- const addItemQuantity = () => setCount(count + 1)
- const subtractItemQuantity = () => setCount(count > 1 ? count - 1 : count)
-
+  
+  const navigateBack = useNavigate()
+  const navigateBackHandler = () => navigateBack(-1)
+  
+  const currentProduct = getProductDetails(product)
+  const [count, setCount] = useState(1)
  
+  const { name, description, price, features, includes, gallery, image, others, new:newProduct } =
+  currentProduct;
+  
   
 
+  const addItemQuantity = () => setCount(count + 1)
+  const subtractItemQuantity = () => setCount(count > 1 ? count - 1 : count)
+
+  
+
+
+
+
+ 
+ 
+  
+// image name newProduct description price
   return (
-    <>
-    <p>Go Back</p>
-      <ProdcutContainer>
-        <ProductImage image={image.desktop} name={name} />
-        <ProductDetails>
-          {newProduct && (<div className="overline">New Product</div>)}
-          <h2>{name}</h2>
-          <p>{description}</p>
-          <h6>${price}</h6>
-
-          <QuantityContainer>
-            <CountContainer>
-
-            <div className="subtitle" onClick={subtractItemQuantity}>-</div>
-            <h6>{count}</h6>
-            <div  className="subtitle"onClick={addItemQuantity}>+</div>
-            </CountContainer>
-          <Button>Add to Cart</Button>
-          </QuantityContainer>
-        </ProductDetails>
-      </ProdcutContainer>
+    <ProductPageContainer>
+    <p onClick={navigateBackHandler} >Go Back</p>
+    <DetailedProductCard currentProduct={currentProduct}/>
       <MoreInfoContainer>
         <ProdcutFeaturesContainer>
           <h3>Features</h3>
@@ -78,7 +75,7 @@ const ProductPage = ({}) => {
         <h4>You May Also Like</h4>
         <OtherProductsNavBar otherProducts={others} />
         <CategoryNav/>
-    </>
+    </ProductPageContainer>
   );
 };
 

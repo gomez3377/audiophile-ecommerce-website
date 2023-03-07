@@ -1,10 +1,10 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../button/button.component";
 import ProductCardDesktopImage from "../product-card-desktop-image/product-card-desktop-image.component";
 import { ProductCardContainer, ProductInfo, ProductImageContainer } from "./product-card.styles";
 
-const ProductCard = ({ product, route }) => {
+const ProductCard = ({ product}) => {
   const { name, description, new: newProduct, image, slug } = product;
   const navigate = useNavigate()
   
