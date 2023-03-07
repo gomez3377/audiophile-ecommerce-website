@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
 
 import PRODUCT_DATA from "../data.json";
@@ -37,6 +37,7 @@ export const ProductContext = createContext({
 export const ProductProvider = ({ children }) => {
   const categories = createCategories();
   const products = PRODUCT_DATA
+ 
 
   
   const value = {
