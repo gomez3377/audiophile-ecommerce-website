@@ -13,10 +13,10 @@ border:none;
 `;
 
 export const ButtonOne = styled(BaseButton)`
-  background-color: var(--orange);
+  background-color: ${({theme: {colors}})=> colors.orange};
   color: white;
   &:hover {
-    background-color: var(--light-orange);
+    background-color: ${({theme: {colors}}) => colors.lightOrange});
   }
 `;
 export const ButtonTwo = styled(BaseButton)`
@@ -32,6 +32,6 @@ export const ButtonThree = styled(BaseButton)`
   color: black;
   opacity: 0.5;
   &:hover {
-    color: var(--orange);
+    color: ${({theme: {colors}})=> colors.orange};
   }
 `;

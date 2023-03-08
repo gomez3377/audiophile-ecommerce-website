@@ -44,7 +44,7 @@ export const CountContainer = styled.div`
     height:48px;
     justify-content:center;
     align-items:center;
-    background-color: var(--light-gray);
+    background-color: ${({theme: {colors}})=> colors.lightGray});
     .subtitle{
         padding: 15px 21px;
         color:black;

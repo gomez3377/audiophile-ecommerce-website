@@ -5,7 +5,7 @@ import App from "./App";
 import { CartProvider } from "./context/cart.context";
 import { ProductProvider } from "./context/product.context";
 import { ShopProvider } from "./context/shop.context";
-import "./index.scss";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

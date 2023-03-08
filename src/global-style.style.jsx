@@ -1,3 +1,8 @@
+import { createGlobalStyle } from "styled-components";
+
+
+export const GlobalStyle = createGlobalStyle`
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -5,17 +10,8 @@
     font-family: 'Manrope' , sans-serif;
 }
 
-:root{
-    --orange: #d87d4a;
-    --light-orange: #fbaf85;
-    --near-black: #101010;
-    --light-gray: #f1f1f1;
-    --near-white: #fafafa;
-
-}
-
 body{
-    background-color: var(--light-gray);
+    background-color: ${({theme: {colors}}) => colors.lightGray};
 }
 
 h1{
@@ -61,14 +57,14 @@ h6 {
     text-transform: uppercase;
     line-height: 19px;
     letter-spacing: 10px;
-    color:var(--orange)
+    color:${({theme: {colors}})=> colors.orange};
 }
 
 .subtitle{
     font-size: 13px;
     text-transform: uppercase;
     line-height: 25px;
-    color:var(--orange)
+    color:${({theme: {colors}})=> colors.orange};
 }
 
 p{
@@ -86,18 +82,4 @@ a{
     color: inherit;
 }
 
-
-
-navigation{
-    display: flex;
-    justify-content: space-between;
-   grid-auto-rows: auto;
-&:last-child{
-
-}
-}
-
-
-// category-container{
-   
-// }
+`

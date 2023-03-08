@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ChekcoutSummary from "../../components/checkout-summary/checkout-summary.component";
-import FormInput from "../../components/Form-Input/form-input.component";
+import FormInput, { INPUT_TYPE_CLASSES } from "../../components/Form-Input/form-input.component";
 import RadioButtonGroup from "../../components/radio-button-group/radio-button-group.component";
 import { ReactComponent as CashOnDeliveryIcon } from "../../assets/checkout/icon-cash-on-delivery.svg";
 import { CheckoutContainer, CheckoutInputContainer, FormContainer, FormSection } from "./checkout.styles";
@@ -94,6 +94,7 @@ const Checkout = () => {
             <FormSection>
               <legend className="subtitle">Shipping Info</legend>
               <FormInput
+              inputType={INPUT_TYPE_CLASSES.address}
                 label="Address"
                 inputOptions={{
                   name: "address",

@@ -24,6 +24,8 @@ border-radius:8px;
 `
 
 export const FormSection = styled.fieldset`
+display:grid;
+grid-template-columns: repeat(2, 1fr);
     border:none;
     margin: 52px 0;
     .subtitle{
