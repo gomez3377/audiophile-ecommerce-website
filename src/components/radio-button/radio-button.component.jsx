@@ -1,13 +1,37 @@
 import React from 'react'
+import { ActiveRadioButtonContainer, InnerRadioCircle, OuterRadioCircle, InactiveRadioButtonContainer } from './radio-button.styles'
 
-const RadioButton = ({label, value, inputOptions, paymentMethod}) => {
+
+export const RADIO_TYPE_CLASSES = {
+  inactive: "inactive",
+  active: "active",
   
+}
+
+const getRadioButton = (radioType = RADIO_TYPE_CLASSES.inactive) => (
+  {
+    [RADIO_TYPE_CLASSES.inactive] : InactiveRadioButtonContainer,
+    [RADIO_TYPE_CLASSES.active] : ActiveRadioButtonContainer,
+
+  }[radioType]
+)
+
+const RadioButton = ({ selectPaymentOptions, item, radioType}) => {
+
+  const {id, label, optionOn} = item
+ const CustomRadio = getRadioButton(radioType)
 
   return (
-    <>
-    <input type="radio"  id={value} {...inputOptions} value={value} checked={paymentMethod === value}  />
-    <label htmlFor={label}>{label}</label>
-    </>
+
+    <CustomRadio onClick= {() => selectPaymentOptions(id)}>
+    <OuterRadioCircle>
+     {optionOn && <InnerRadioCircle/>}
+           
+      </OuterRadioCircle>
+        <p>{label}</p>
+
+    </CustomRadio>
+
   )
 }
 

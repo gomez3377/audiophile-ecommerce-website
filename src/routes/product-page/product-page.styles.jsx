@@ -13,7 +13,11 @@ export const ProductPageContainer = styled.div`
 
 
 `
+export const NavigateBackLink = styled.p`
+cursor:pointer;
+opacity:50%;
 
+`
 
 export const MoreInfoContainer = styled.div`
     margin: 0 auto;

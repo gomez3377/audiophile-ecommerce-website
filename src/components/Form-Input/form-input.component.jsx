@@ -1,4 +1,4 @@
-import { AddressInput, CheckoutInput, CheckoutLabel } from "./form-input.styles"
+import { AddressInputContainer, CheckoutInput, CheckoutLabel, FormInputContainer } from "./form-input.styles"
 
 
 export const INPUT_TYPE_CLASSES = {
@@ -6,19 +6,19 @@ export const INPUT_TYPE_CLASSES = {
   address: 'address'
 }
 
-const getInput = (inputType = INPUT_TYPE_CLASSES.default) => ({
-  [INPUT_TYPE_CLASSES.default] : CheckoutInput,
-  [INPUT_TYPE_CLASSES.address] : AddressInput
-}[inputType])
 
-const FormInput = ({ label, inputOptions, inputType}) => {
+const getFormInput = (formInputType = INPUT_TYPE_CLASSES.default) => ({
+  [INPUT_TYPE_CLASSES.default] : FormInputContainer,
+  [INPUT_TYPE_CLASSES.address] : AddressInputContainer,
+}[formInputType])
 
-  const CustomInput = getInput(inputType)
+const FormInput = ({ label, inputOptions, formInputType}) => {
+const CustomFormInput = getFormInput(formInputType)
   return (
-    <div className='form-input-container'>
+    <CustomFormInput>
         <CheckoutLabel htmlFor="">{label}</CheckoutLabel>
-        <CustomInput {...inputOptions}/>
-    </div>
+        <CheckoutInput {...inputOptions}/>
+    </CustomFormInput>
   )
 }
 

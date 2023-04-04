@@ -4,7 +4,7 @@ import ChekcoutSummary from "../../components/checkout-summary/checkout-summary.
 import FormInput, { INPUT_TYPE_CLASSES } from "../../components/Form-Input/form-input.component";
 import RadioButtonGroup from "../../components/radio-button-group/radio-button-group.component";
 import { ReactComponent as CashOnDeliveryIcon } from "../../assets/checkout/icon-cash-on-delivery.svg";
-import { CheckoutContainer, CheckoutInputContainer, FormContainer, FormSection } from "./checkout.styles";
+import { CashOnDeliveryInfo, CheckoutContainer, CheckoutInputContainer, EMoneyInputsContainer, FormContainer, FormSection, NavigateBackLink } from "./checkout.styles";
 
 const defaultFormFields = {
   displayName: "",
@@ -19,17 +19,28 @@ const defaultFormFields = {
   eMoneyPin: "",
 };
 
-const paymentOptions = [
-  { label: "e-Money", value: "eMoney" },
-  { label: "Cash On Delievery", value: "cash" },
-];
+
 
 const Checkout = () => {
 
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const [paymentOptions, setPaymentOptions] = useState([
+    { label: "e-Money", id: "eMoney", optionOn: false },
+    { label: "Cash On Delievery", id: "cash", optionOn: false },
+  ])
   
   const navigateBack = useNavigate()
   const navigateBackHandler = () => navigateBack(-1)
+
+  const selectPaymentOptions = (id) => {
+   
+    setPaymentOptions(paymentOptions.map((option) => 
+        option.id == id 
+        ? {...option, optionOn: true}
+        : {...option, optionOn: false}
+    ))
+    setFormFields({...formFields, paymentMethod: id})
+  }
   const {
     displayName,
     email,
@@ -46,11 +57,11 @@ const Checkout = () => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
-
+  
 
   return (
     <CheckoutContainer>
-      <p onClick={navigateBackHandler}>Go Back</p>
+      <NavigateBackLink onClick={navigateBackHandler}>Go Back</NavigateBackLink>
       <FormContainer action="">
    
           <CheckoutInputContainer>
@@ -94,7 +105,7 @@ const Checkout = () => {
             <FormSection>
               <legend className="subtitle">Shipping Info</legend>
               <FormInput
-              inputType={INPUT_TYPE_CLASSES.address}
+              formInputType={INPUT_TYPE_CLASSES.address}
                 label="Address"
                 inputOptions={{
                   name: "address",
@@ -142,17 +153,13 @@ const Checkout = () => {
             <FormSection>
               <legend className="subtitle">Payment Details</legend>
               <RadioButtonGroup
-                paymentMethod={paymentMethod}
-                inputOptions={{
-                  name: "paymentMethod",
-                  onChange: onHandleChange,
-                }}
+                selectPaymentOptions = {selectPaymentOptions}
                 label="Payment Method"
                 labelList={paymentOptions}
               />
 
               {paymentMethod === "cash" ? (
-                <div>
+                <CashOnDeliveryInfo>
                   <CashOnDeliveryIcon />
                   <p>
                     The 'Cash on Delivery' option enables you to pay in cash
@@ -160,9 +167,9 @@ const Checkout = () => {
                     make sure your address is correct so that your order will
                     not be cancelled.
                   </p>
-                </div>
+                </CashOnDeliveryInfo>
               ) : (
-                <div>
+                <EMoneyInputsContainer>
                   <FormInput
                     label="e-Money Number"
                     inputOptions={{
@@ -185,7 +192,7 @@ const Checkout = () => {
                       onChange: onHandleChange,
                     }}
                   />
-                </div>
+                </EMoneyInputsContainer>
               )}
             </FormSection>
           </CheckoutInputContainer>

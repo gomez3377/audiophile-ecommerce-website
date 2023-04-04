@@ -73,13 +73,12 @@ p{
     line-height: 25px;
 }
 
-li{
-    list-style: none;
-}
+
 
 a{
     text-decoration: none;
     color: inherit;
 }
+
 
 `
